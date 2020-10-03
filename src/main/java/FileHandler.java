@@ -6,19 +6,24 @@ import java.util.List;
 import java.util.Scanner;
 
 public class FileHandler {
-
-    private File saveFile = new File("saveFile.txt");
-
-    protected void checkFile()  throws IOException{
-        if (saveFile.exists()) {
-            System.out.println("Save file exists... loading save file.");
-        } else {
-            System.out.println("Creating new save file.");
-            throw new IOException("Something went wrong. Sorry about that.");
+    protected File saveFile;
+    protected void checkFile(String saveLocation){
+        saveFile = new File(saveLocation);
+        try {
+            if (saveFile.exists()) {
+                System.out.println("Save file exists... loading save file.");
+            } else {
+                saveFile.createNewFile();
+                System.out.println("Creating new save file.");
+            }
+        }
+        catch(IOException e){
+            System.out.println("Error Occured");
+            e.printStackTrace();
         }
     }
     protected void writeToFile(List<String> fInput) throws IOException {
-       FileWriter writer = new FileWriter("saveFile.txt", true);
+       FileWriter writer = new FileWriter(saveFile, true);
         writer.write(fInput + System.lineSeparator());
         writer.close();
     }
