@@ -23,3 +23,8 @@ hs_err_pid*
 
 #Anything from .idea
 *.idea
+
+#Generated .txt files from user
+TestValues.txt
+CurrentValues.txt
+ArchivedValues.txt
