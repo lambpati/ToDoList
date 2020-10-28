@@ -1,11 +1,11 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
-public interface Observable {
-    ButtonHandler buttonHandler = new ButtonHandler();
-    FileHandler fileHandler = new FileHandler();
+public class Observable {
+     ButtonHandler buttonHandler = new ButtonHandler();
+     FileHandler fileHandler = new FileHandler();
 
-    default void checkIfChanged(ArrayList<String> currentValues, ArrayList<String> archivedValues) throws IOException {
+    protected void checkIfChanged(ArrayList<String> currentValues, ArrayList<String> archivedValues) throws IOException {
         if (buttonHandler.currentValues != currentValues) {
             fileHandler.checkFile("currentFile.txt");
             fileHandler.writeToFile(currentValues);
