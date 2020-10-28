@@ -25,6 +25,6 @@ hs_err_pid*
 *.idea
 
 #Generated .txt files from user
-TestValues.txt
-CurrentValues.txt
-ArchivedValues.txt
+testValues.txt
+currentFile.txt
+archivedFile.txt
