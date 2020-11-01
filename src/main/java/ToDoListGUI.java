@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 
 public class ToDoListGUI {
     String[] columnNames = {"Task", "Date added"};
@@ -17,8 +16,8 @@ public class ToDoListGUI {
     private ButtonHandler buttonHandler;
 
     private void SetupTables() throws FileNotFoundException {
-        buttonHandler.initializeGUI();
-        ArrayList<String> currentValues = buttonHandler.currentValues;
+//        buttonHandler.initializeGUI();
+//        ArrayList<String> currentValues = buttonHandler.currentValues;
         String[] columnNames = {"Task", "Date Added"};
 //        DefaultTableModel defaultCurrent = new DefaultTableModel(currentValues.toArray(), columnNames);
     }
