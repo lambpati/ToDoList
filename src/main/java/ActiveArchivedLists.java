@@ -1,12 +1,9 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class ActiveArchivedLists {
-    List<ToDoList> active;
-    List<ToDoList> archived;
+    ToDoList active;
+    ToDoList archived;
 
     public ActiveArchivedLists() {
-        active = new ArrayList<>();
-        archived = new ArrayList<>();
+        active = new ToDoList();
+        archived = new ToDoList();
     }
 }

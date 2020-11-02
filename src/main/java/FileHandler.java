@@ -1,8 +1,7 @@
 import com.google.gson.Gson;
 
-import java.util.List;
-
 public class FileHandler extends AbstractObserver {
+    ActiveArchivedLists lists = new ActiveArchivedLists();
     @Override
     public void notifyObservers() {
 
@@ -10,16 +9,16 @@ public class FileHandler extends AbstractObserver {
 
     protected Gson saveFile = new Gson();
 
-    protected void writeToFile(ActiveArchivedLists fInput) {
+    protected void writeToFile(ToDoList fInput) {
         saveFile.toJson(fInput);
     }
 
-    protected void readFromFile(ActiveArchivedLists fOutput, String ListType) {
+    protected void readFromFile(String ListType) {
         if (ListType.equals("active")) {
-            fOutput.active = saveFile.fromJson("active", List.class);
+            lists.active = saveFile.fromJson(String.valueOf(lists.active), ToDoList.class);
         }
         if (ListType.equals("archived")) {
-            fOutput.archived = saveFile.fromJson("archived", List.class);
+            lists.archived = saveFile.fromJson("archived", ToDoList.class);
         }
 
     }

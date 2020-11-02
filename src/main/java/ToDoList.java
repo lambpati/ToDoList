@@ -17,4 +17,13 @@ public class ToDoList extends Item {
         items.remove(i);
         notifySubscribers();
     }
+
+    public void clear() {
+        items.clear();
+        notifySubscribers();
+    }
+
+    public void getItem(int index) {
+        items.get(index);
+    }
 }
