@@ -1,13 +1,14 @@
 import com.google.gson.Gson;
 
 public class FileHandler extends AbstractObserver {
-    ActiveArchivedLists lists = new ActiveArchivedLists();
+    protected ActiveArchivedLists lists = new ActiveArchivedLists();
+    private final Gson saveFile = new Gson();
+
     @Override
     public void notifyObservers() {
 
     }
 
-    protected Gson saveFile = new Gson();
 
     protected void writeToFile(ToDoList fInput) {
         saveFile.toJson(fInput);

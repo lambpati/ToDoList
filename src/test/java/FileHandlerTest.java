@@ -33,9 +33,9 @@ class FileHandlerTest extends ActiveArchivedLists {
     @Test
     void readFromFile() {
         writeToFile();
-//        handler.readFromFile("active");
-//        handler.readFromFile("archived");
-        System.out.println(active);
-        System.out.println(archived);
+        handler.readFromFile("active");
+        handler.readFromFile("archived");
+//        System.out.println(active);
+//        System.out.println(archived);
     }
 }
