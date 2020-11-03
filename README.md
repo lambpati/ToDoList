@@ -6,5 +6,6 @@ To run ToDoList, download the project through GitHub or as a .zip and extract to
 ##Usage
 To run, run
 > ./gradlew build
+
 in a terminal window
 You can create a To Do List that will automatically update when you add or remove items and check off completed tasks through the easy to use user interface.
