@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 class ToDoListTest {
     ToDoList testList = new ToDoList();
     ToDoItem item = new ToDoItem();
@@ -13,17 +16,20 @@ class ToDoListTest {
     void addItem() {
         setItem();
         testList.addItem(item);
+        assertEquals(testList.getItems().get(0), item.getDescription());
     }
 
     @Test
     void removeItem() {
+        addItem();
+        testList.removeItem(item);
+        assertTrue(testList.getItems().isEmpty());
     }
 
     @Test
     void clear() {
-    }
-
-    @Test
-    void getItem() {
+        addItem();
+        testList.clear();
+        assertTrue(testList.getItems().isEmpty());
     }
 }

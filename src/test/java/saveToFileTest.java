@@ -1,6 +1,7 @@
 import com.google.gson.Gson;
 import org.junit.jupiter.api.Test;
 
+
 class saveToFileTest {
     saveToFile handler = new saveToFile();
     ToDoItem item = new ToDoItem();
@@ -11,6 +12,8 @@ class saveToFileTest {
         for (int i = 0; i < 10; i++) {
             item.setDescription("Active item: " + i);
             item.setPriority(i);
+            System.out.println(item.getDescription());
+            System.out.println(item.getPriority());
             test.addItem(item);
             test.notifySubscribers();
         }
@@ -19,8 +22,5 @@ class saveToFileTest {
     @Test
     void writeToFile() {
         createListValues();
-        handler.writeToFile(test);
-//        System.out.println(handler.list.items.get(0));
-
     }
 }

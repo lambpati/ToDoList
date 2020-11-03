@@ -6,7 +6,7 @@ import java.util.List;
  * notifying subscribers of the changes each time.
  */
 public class ToDoList extends Publisher {
-    List<ToDoItem> items;
+    private final List<String> items;
 
     /** Constructs a new ArrayList of ToDoItems */
     public ToDoList() {
@@ -15,13 +15,13 @@ public class ToDoList extends Publisher {
 
     /** Adds items to the ToDoList */
     public void addItem(ToDoItem i) {
-        items.add(i);
+        items.add(i.getPriority(), i.getDescription());
         notifySubscribers();
     }
 
     /** Removes items from the ToDoList */
     public void removeItem(ToDoItem i) {
-        items.remove(i);
+        items.remove(i.getPriority());
         notifySubscribers();
     }
 
@@ -31,7 +31,7 @@ public class ToDoList extends Publisher {
         notifySubscribers();
     }
 
-    public List<ToDoItem> getItems() {
+    public List<String> getItems() {
         return items;
     }
 }
