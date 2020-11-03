@@ -4,7 +4,7 @@ ToDoList is meant to generate a To-Do List through a simple UI and code written 
 ## Installation
 To run ToDoList, download the project through GitHub or as a .zip and extract to the proper location.
 ## Building
-To build, run
+To build, run:
 > ./gradlew build
 
 in a terminal window.
