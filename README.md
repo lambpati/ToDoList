@@ -1,9 +1,9 @@
 # ToDoList
-##Description
+## Description
 ToDoList is meant to generate a To-Do List through a simple UI and code written in Java.
-##Installation
+## Installation
 To run ToDoList, download the project through GitHub or as a .zip and extract to the proper location.
-##Usage
+## Usage
 To run, run
 > ./gradlew build
 
