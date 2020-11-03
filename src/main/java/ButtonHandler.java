@@ -1,8 +1,4 @@
-public class ButtonHandler extends AbstractObserver {
-    @Override
-    public void notifyObservers() {
-
-    }
+public class ButtonHandler extends Publisher {
 //    protected ArrayList<String> currentValues;
 //    protected ArrayList<String> archivedValues;
 //    private boolean addButton;

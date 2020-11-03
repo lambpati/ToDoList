@@ -2,7 +2,24 @@ public class ToDoItem {
     private String description;
     private int priority;
 
-    public ToDoItem(String description, int priority) {
+    public ToDoItem() {
+
         //leave empty
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

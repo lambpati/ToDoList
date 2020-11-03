@@ -1,6 +1,6 @@
 import org.junit.jupiter.api.Test;
 
-class ItemTest {
+class PublisherTest {
 
     @Test
     void subscribe() {

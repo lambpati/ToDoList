@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ToDoList extends Item {
+public class ToDoList extends Publisher {
     List<ToDoItem> items;
 
     public ToDoList() {
@@ -23,7 +23,7 @@ public class ToDoList extends Item {
         notifySubscribers();
     }
 
-    public void getItem(int index) {
-        items.get(index);
+    public List<ToDoItem> getItems() {
+        return items;
     }
 }

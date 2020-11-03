@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Item {
+public abstract class Publisher {
     List<Observer> subscribers;
 
-    public Item() {
+    public Publisher() {
         subscribers = new ArrayList<>();
     }
 
