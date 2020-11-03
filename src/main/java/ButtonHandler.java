@@ -1,3 +1,8 @@
+/**
+ * Acts as an interface between
+ * adding and subtracting values for the ToDoList
+ * and sends the data to respective Observers.
+ */
 public class ButtonHandler extends Publisher {
 //    protected ArrayList<String> currentValues;
 //    protected ArrayList<String> archivedValues;

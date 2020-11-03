@@ -1,3 +1,7 @@
+/**
+ * Gets and sets values for the description
+ * of a ToDoListItem and its priority
+ */
 public class ToDoItem {
     private String description;
     private int priority;

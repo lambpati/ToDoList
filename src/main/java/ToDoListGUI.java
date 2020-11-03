@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.io.FileNotFoundException;
 
+/**
+ * Creates the GUI for the ToDoList
+ */
 public class ToDoListGUI {
     String[] columnNames = {"Task", "Date added"};
     private JTabbedPane tabbedPane1;
