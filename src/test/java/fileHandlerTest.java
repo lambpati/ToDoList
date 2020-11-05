@@ -2,11 +2,12 @@ import com.google.gson.Gson;
 import org.junit.jupiter.api.Test;
 
 
-class saveToFileTest {
-    saveToFile handler = new saveToFile();
+class fileHandlerTest {
+    fileHandler handler = new fileHandler();
     ToDoItem item = new ToDoItem();
     ToDoList test = new ToDoList();
-    Gson gson = new Gson();
+    Gson file = new Gson();
+    ToDoList outputF = new ToDoList();
 
     void createListValues() {
         for (int i = 0; i < 10; i++) {
@@ -22,5 +23,7 @@ class saveToFileTest {
     @Test
     void writeToFile() {
         createListValues();
+        handler.writeToFile(test);
+        System.out.println(handler.getfOutput());
     }
 }
