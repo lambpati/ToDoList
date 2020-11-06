@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
 
@@ -38,7 +39,7 @@ class ListManagerTest {
         gsonHandler.readFromFile();
         System.out.println(gsonHandler.getfOutput());
         listManager.initialPopulate();
-//        assertTrue(testList.getItems().isEmpty());
+        assertEquals(testList.getItems(), gsonHandler.getList().getItems());
 
 
     }
@@ -49,7 +50,14 @@ class ListManagerTest {
      */
     @Test
     void addValue() {
+        initialPopulate();
+        listManager.notifySubscribers();
         listManager.addValue("Added Value!");
+//        item.setPriority(10);
+//        item.setDescription("Added Value!");
+//        gsonHandler.list.addItem(item);
+        listManager.notifySubscribers();
+        System.out.println(gsonHandler.list.getItems());
 //        assertEquals(listManager.getManagedList().getItems(), gsonHandler.getList().getItems());
     }
 
