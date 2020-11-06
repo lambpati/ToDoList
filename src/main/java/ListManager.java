@@ -4,19 +4,27 @@
  * and sends the data to respective Observers.
  */
 public class ListManager extends Publisher {
-    private final FileHandler fileHandler = new FileHandler();
+    private final GsonHandler gsonHandler = new GsonHandler();
     private final ToDoItem item = new ToDoItem();
     protected ToDoList toDoList = new ToDoList();
     private int iterator = 0;
 
+    /**
+     * Adds an instance of GsonHandler as a subscriber (observer)
+     * to changes made in ListManager
+     */
     public ListManager() {
-        subscribers.add(fileHandler);
+        subscribers.add(gsonHandler);
     }
 
+    /**
+     * Pulls data from the save file into the list upon startup, Printing out "Empty List!"
+     * if there is no values from the file
+     */
     protected void initialPopulate() {
-        fileHandler.readFromFile();
+        gsonHandler.readFromFile();
         try {
-            for (String i : fileHandler.getList().getItems()) {
+            for (String i : gsonHandler.getList().getItems()) {
                 item.setPriority(iterator);
                 item.setDescription(i);
                 toDoList.addItem(item);
@@ -27,6 +35,10 @@ public class ListManager extends Publisher {
         }
     }
 
+    /**
+     * Adds an Item of a set description at the last priority on the list,
+     * notifying subscribers following the change.
+     */
     protected void addValue(String description) {
         item.setDescription(description);
         item.setPriority(toDoList.getItems().size());
@@ -34,6 +46,10 @@ public class ListManager extends Publisher {
         notifySubscribers();
     }
 
+    /**
+     * Removes an Item at a certain priority,
+     * notifying subscrivers following the change.
+     */
     protected void removeValue(int priority) {
         item.setPriority(priority);
         toDoList.removeItem(item);
