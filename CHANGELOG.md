@@ -8,20 +8,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.1] - 2020-11-03
 ### Changed
+- Edited all classes and tests to use JavaDocs documentation.
 - Commented out broken code in ToDoListGUI
 - Updated Gradle to include Gson
-- Refactoring using Design Pattern in Refactoring.guru
+- Refactoring using Design Pattern from Refactoring.guru
 - Changed .gitignore
-- Update README.md
+- Updated README.md
 - Made crucial changes to UML Diagram
 - Changed permissions in gradlew
-- Changed from --scan to just build in travis ci
+- Changed from --scan to just build in TravisCI.
 - Changed GsonHandlerTest.java now that the structure is updated.
 ### Added
-- Creating simple tests for ToDoList, readFromFile, GsonHandler and Publisher.
+- Created ListManager to communicate between ToDoListGUI and GsonHandler.
+- Created simple tests for ToDoList, FileReader, GsonHandler, ListManager, and Publisher.
 - Created Observer, Publisher, ToDoItem, ToDoList, and ToDoListGUI to exhibit proper Observer Class behavior.
-- Wrote readFromFile and GsonHandler to use GSon and newly written classes.
-- Committed JavaDocs
+- Wrote FileReader and GsonHandler to use GSon and newly written classes.
 - Added UML Design Image
 - Added UI Design Image
 - Create .travis.yml

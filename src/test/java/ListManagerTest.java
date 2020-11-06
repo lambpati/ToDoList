@@ -1,7 +1,8 @@
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.File;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Test by populating an initial list of values, then adding and subtracting
@@ -35,9 +36,9 @@ class ListManagerTest {
     void initialPopulate() {
         populate();
         gsonHandler.writeToFile(testList);
-        System.out.println(gsonHandler.getfOutput());
+//        System.out.println(gsonHandler.getfOutput());
         gsonHandler.readFromFile();
-        System.out.println(gsonHandler.getfOutput());
+//        System.out.println(gsonHandler.getfOutput());
         listManager.initialPopulate();
         assertEquals(testList.getItems(), gsonHandler.getList().getItems());
 
