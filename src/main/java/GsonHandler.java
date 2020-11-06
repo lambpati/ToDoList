@@ -16,7 +16,7 @@ public class GsonHandler implements Observer {
     }.getType();
     private final FileReader fileHandler = new FileReader();
     private final File file = new File("save.txt");
-    private ToDoList list = new ToDoList();
+    protected ToDoList list = new ToDoList();
     private String fOutput;
 
     public GsonHandler() {

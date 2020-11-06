@@ -8,6 +8,7 @@ public class ListManager extends Publisher {
     private final ToDoItem item = new ToDoItem();
     protected ToDoList toDoList = new ToDoList();
     private int iterator = 0;
+    private FileReader fileReader = new FileReader();
 
     /**
      * Adds an instance of GsonHandler as a subscriber (observer)
@@ -53,6 +54,7 @@ public class ListManager extends Publisher {
     protected void removeValue(int priority) {
         item.setPriority(priority);
         toDoList.removeItem(item);
+        gsonHandler.list.removeItem(item);
         notifySubscribers();
     }
 
