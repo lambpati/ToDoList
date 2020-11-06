@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+
 /**
  * Test by populating an initial list of values, then adding and subtracting
  * values to the list, asserting that the ToDoList and the test list match values.
@@ -9,6 +11,7 @@ class ListManagerTest {
     GsonHandler gsonHandler = new GsonHandler();
     ToDoList testList = new ToDoList();
     ToDoItem item = new ToDoItem();
+    File file = new File("save.txt");
 
     /**
      * Creates an initial population of "Managed List values" items and then
@@ -58,5 +61,7 @@ class ListManagerTest {
     void removeValue() {
         listManager.removeValue(0);
 //        assertEquals(listManager.getManagedList().getItems(),gsonHandler.getList().getItems());
+        file.delete();
+
     }
 }
