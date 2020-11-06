@@ -1,6 +1,6 @@
 # ToDoList
 ## Description
-ToDoList is meant to generate a To-Do List through a simple UI and code written in Java.
+ToDoList is meant to generate a To-Do List through a simple UI and code written in Java. Code follows the Google Style Guide.
 ## Installation
 To run ToDoList, download the project through GitHub or as a .zip and extract to the proper location.
 ## Building
