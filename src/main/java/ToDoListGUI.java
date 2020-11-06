@@ -16,11 +16,11 @@ public class ToDoListGUI {
     private JButton archiveButton;
     private JTextPane textPane1;
 
-    private ButtonHandler buttonHandler;
+    private ListManager listManager;
 
     private void SetupTables() throws FileNotFoundException {
-//        buttonHandler.initializeGUI();
-//        ArrayList<String> currentValues = buttonHandler.currentValues;
+//        listManager.initializeGUI();
+//        ArrayList<String> currentValues = listManager.currentValues;
         String[] columnNames = {"Task", "Date Added"};
 //        DefaultTableModel defaultCurrent = new DefaultTableModel(currentValues.toArray(), columnNames);
     }

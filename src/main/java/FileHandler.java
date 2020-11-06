@@ -4,7 +4,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 
 /**
- * Listens for a change from ButtonHandler to
+ * Listens for a change from ListManager to
  * update the Json file to save values.
  */
 public class FileHandler implements Observer {
@@ -13,8 +13,6 @@ public class FileHandler implements Observer {
     }.getType();
     private ToDoList list = new ToDoList();
     private String fOutput;
-    private ToDoList output;
-
     /**
      * Writes to Json file from ToDoList fInput
      */
@@ -23,7 +21,11 @@ public class FileHandler implements Observer {
     }
 
     protected void readFromFile() {
-        list = saveFile.fromJson(fOutput, deserializationType);
+        try {
+            list = saveFile.fromJson(fOutput, deserializationType);
+        } catch (Exception e) {
+            System.out.println("Empty list!");
+        }
     }
 
     protected ToDoList getList() {

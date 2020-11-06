@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Adds subscribers to observe ButtonHandler specifically
+ * Adds subscribers to observe ListManager specifically
  */
 public abstract class Publisher {
     List<Observer> subscribers;

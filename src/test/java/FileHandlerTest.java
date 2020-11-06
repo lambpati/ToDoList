@@ -30,6 +30,7 @@ class FileHandlerTest {
 
     @Test
     void readFromFile() {
+        handler.readFromFile();
         writeToFile();
         handler.readFromFile();
 //        System.out.println(handler.getList().getItems());
