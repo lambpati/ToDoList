@@ -39,7 +39,8 @@ class GsonHandlerTest {
     @Test
     void writeToFile() {
         createListValues();
-        handler.writeToFile(test);
+        handler.list = test;
+        handler.writeToFile();
 //        System.out.println(handler.getfOutput());
         assertTrue(handler.getfOutput().contains(item.getDescription()));
     }

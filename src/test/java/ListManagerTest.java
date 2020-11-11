@@ -35,12 +35,15 @@ class ListManagerTest {
     @Test
     void initialPopulate() {
         populate();
-        gsonHandler.writeToFile(testList);
+        gsonHandler.list = testList;
+        gsonHandler.writeToFile();
 //        System.out.println(gsonHandler.getfOutput());
-        gsonHandler.readFromFile();
 //        System.out.println(gsonHandler.getfOutput());
         listManager.initialPopulate();
-        assertEquals(testList.getItems(), gsonHandler.getList().getItems());
+        listManager.notifySubscribers();
+        System.out.println(gsonHandler.getList().getItems());
+        System.out.println(listManager.toDoList.getItems());
+        assertEquals(gsonHandler.getList().getItems(), listManager.toDoList.getItems());
 
 
     }
@@ -52,14 +55,15 @@ class ListManagerTest {
     @Test
     void addValue() {
         initialPopulate();
-        listManager.notifySubscribers();
         listManager.addValue("Added Value!");
+        gsonHandler.list = listManager.toDoList;
 //        item.setPriority(10);
 //        item.setDescription("Added Value!");
 //        gsonHandler.list.addItem(item);
         listManager.notifySubscribers();
         System.out.println(gsonHandler.list.getItems());
-//        assertEquals(listManager.getManagedList().getItems(), gsonHandler.getList().getItems());
+        System.out.println(listManager.toDoList.getItems());
+        assertEquals(listManager.getManagedList().getItems(), gsonHandler.getList().getItems());
     }
 
     /**
@@ -68,8 +72,10 @@ class ListManagerTest {
      */
     @Test
     void removeValue() {
-//        listManager.removeValue(0);
-//        assertEquals(listManager.getManagedList().getItems(),gsonHandler.getList().getItems());
+        initialPopulate();
+        listManager.removeValue(0);
+        gsonHandler.list = listManager.toDoList;
+        assertEquals(listManager.getManagedList().getItems(),gsonHandler.getList().getItems());
         file.delete();
 
     }

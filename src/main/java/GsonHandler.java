@@ -26,16 +26,15 @@ public class GsonHandler implements Observer {
     /**
      * Writes to Json file from ToDoList fInput
      */
-    protected void writeToFile(ToDoList fInput) {
+    protected void writeToFile() {
         try {
-            fOutput = gson.toJson(fInput);
+            fOutput = gson.toJson(list);
             FileWriter fileWriter = new FileWriter(file.getName());
-            fileWriter.write(gson.toJson(fInput));
+            fileWriter.write(gson.toJson(list));
             fileWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        fOutput = gson.toJson(fInput);
     }
 
     /**
@@ -72,6 +71,6 @@ public class GsonHandler implements Observer {
      */
     @Override
     public void notifyObservers() {
-        writeToFile(list);
+        writeToFile();
     }
 }

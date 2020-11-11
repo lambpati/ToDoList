@@ -8,7 +8,6 @@ public class ListManager extends Publisher {
     private final ToDoItem item = new ToDoItem();
     protected ToDoList toDoList = new ToDoList();
     private int iterator = 0;
-    private final FileReader fileReader = new FileReader();
 
     /**
      * Adds an instance of GsonHandler as a subscriber (observer)
@@ -18,23 +17,16 @@ public class ListManager extends Publisher {
         subscribers.add(gsonHandler);
     }
 
-    /**
-     * Pulls data from the save file into the list upon startup, Printing out "Empty List!"
-     * if there is no values from the file
-     */
-    protected void initialPopulate() {
+    protected void initialPopulate(){
         gsonHandler.readFromFile();
-        try {
-            for (String i : gsonHandler.getList().getItems()) {
-                item.setPriority(iterator);
-                item.setDescription(i);
-                toDoList.addItem(item);
-                iterator++;
-            }
-        } catch (NullPointerException e) {
-            System.out.println("Empty List!");
+        for (String i:gsonHandler.getList().getItems()) {
+            item.setDescription(i);
+            item.setPriority(iterator);
+            toDoList.addItem(item);
+            iterator++;
         }
     }
+
 
     /**
      * Adds an Item of a set description at the last priority on the list,
@@ -45,6 +37,7 @@ public class ListManager extends Publisher {
         item.setPriority(toDoList.getItems().size());
         toDoList.addItem(item);
         notifySubscribers();
+        gsonHandler.list.addItem(item);
     }
 
     /**
