@@ -2,19 +2,33 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 public class ToDoListUI {
-    private JButton newButton;
+    private final JButton newButton = new JButton();
     private JButton deleteButton;
     private JTable toDoTable;
-    private final JPanel jPanel = new JPanel();
+    private final JPanel panel = new JPanel();
     private final ListManager listManager = new ListManager();
     private final DefaultTableModel model = new DefaultTableModel();
     String[] columnNames = {"Task"};
 
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("ToDoListUI");
+        frame.setContentPane(new ToDoListUI().panel);
+        ToDoListUI toDoListUI = new ToDoListUI();
+        toDoListUI.loadData();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+
+
+    }
+
     public void loadData() {
-        listManager.initialPopulate();
-        toDoTable.setModel(model);
-        model.setColumnIdentifiers(columnNames);
-        if (!listManager.getManagedList().getItems().isEmpty()) {
+        System.out.println(panel.isValid());
+        panel.setVisible(true);
+        panel.add(newButton);
+        newButton.setVisible(true);
+        try {
+            listManager.initialPopulate();
             for (String s : listManager.getManagedList().getItems()) {
                 for (int i = 0; i < listManager.getManagedList().getItems().size(); i++) {
                     Object[] o = new Object[listManager.getManagedList().getItems().size()];
@@ -22,24 +36,12 @@ public class ToDoListUI {
                     model.addRow(o);
                 }
             }
+            toDoTable.setModel(model);
+            model.setColumnIdentifiers(columnNames);
+        } catch (NullPointerException e) {
+            System.out.println("No data loaded!");
         }
-        else {
-            Object[] o = new Object[0];
-            o[0] = "Add new tasks!";
-            model.addRow(o);
-        }
-
-    }
-
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("ToDoListUI");
-        frame.setContentPane(new ToDoListUI().jPanel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-
-        ToDoListUI toDoListUI = new ToDoListUI();
-        toDoListUI.loadData();
+//        jPanel.add(toDoTable);
 
     }
 }
