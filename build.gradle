@@ -16,11 +16,6 @@ repositories {
     mavenCentral()
 }
 
-jar {
-    manifest {
-        attributes 'Main-Class': 'ToDoListUI'
-    }
-}
 test {
     useJUnitPlatform()
 }
