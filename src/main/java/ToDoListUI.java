@@ -5,16 +5,16 @@ public class ToDoListUI {
     private JButton newButton;
     private JButton deleteButton;
     private JTable toDoTable;
-    private JPanel jPanel;
-    private ListManager listManager = new ListManager();
-    private DefaultTableModel model = new DefaultTableModel();
+    private final JPanel jPanel = new JPanel();
+    private final ListManager listManager = new ListManager();
+    private final DefaultTableModel model = new DefaultTableModel();
     String[] columnNames = {"Task"};
 
-    public void loadData(){
+    public void loadData() {
         listManager.initialPopulate();
         toDoTable.setModel(model);
         model.setColumnIdentifiers(columnNames);
-        if(!listManager.getManagedList().getItems().isEmpty()) {
+        if (!listManager.getManagedList().getItems().isEmpty()) {
             for (String s : listManager.getManagedList().getItems()) {
                 for (int i = 0; i < listManager.getManagedList().getItems().size(); i++) {
                     Object[] o = new Object[listManager.getManagedList().getItems().size()];
@@ -38,8 +38,8 @@ public class ToDoListUI {
         frame.pack();
         frame.setVisible(true);
 
-//        ToDoListUI toDoListUI = new ToDoListUI();
-//        toDoListUI.loadData();
+        ToDoListUI toDoListUI = new ToDoListUI();
+        toDoListUI.loadData();
 
     }
 }

@@ -1,9 +1,11 @@
 plugins {
     id 'java'
+    id 'application'
 }
 sourceSets{
 
 }
+
 
 group 'org.example'
 version '1.0-SNAPSHOT'
@@ -13,6 +15,12 @@ sourceCompatibility = 1.8
 repositories {
     mavenCentral()
 }
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'ToDoListUI'
+    }
+}
 test {
     useJUnitPlatform()
 }
@@ -21,4 +29,5 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    compile 'com.intellij:forms_rt:7.0.3'
 }
