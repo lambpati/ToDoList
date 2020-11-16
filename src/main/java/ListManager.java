@@ -18,6 +18,7 @@ public class ListManager extends Publisher {
     }
 
     protected void initialPopulate(){
+        gsonHandler.checkForFile();
         gsonHandler.readFromFile();
         for (String i:gsonHandler.getList().getItems()) {
             item.setDescription(i);

@@ -1,11 +1,15 @@
+import com.intellij.uiDesigner.core.GridLayoutManager;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.io.FileNotFoundException;
 
 public class ToDoListUI {
-    private final JButton newButton = new JButton();
-    private JButton deleteButton;
-    private JTable toDoTable;
-    private final JPanel panel = new JPanel();
+    private final JButton newButton = new JButton("New");
+    private JButton deleteButton = new JButton("Delete");
+    private JTable toDoTable = new JTable();
+    private final JPanel panel = new JPanel(new GridLayoutManager(500,500));
     private final ListManager listManager = new ListManager();
     private final DefaultTableModel model = new DefaultTableModel();
     String[] columnNames = {"Task"};
@@ -13,20 +17,34 @@ public class ToDoListUI {
     public static void main(String[] args) {
         JFrame frame = new JFrame("ToDoListUI");
         frame.setContentPane(new ToDoListUI().panel);
+        frame.setSize(5,5);
         ToDoListUI toDoListUI = new ToDoListUI();
         toDoListUI.loadData();
+        toDoListUI.setupUI();
+        frame.add(toDoListUI.panel, new com.intellij.uiDesigner.core.GridConstraints());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
 
 
     }
+    public void setupUI(){
+        panel.setVisible(true);
+
+        newButton.setVisible(true);
+
+        deleteButton.setVisible(true);
+
+        model.setColumnIdentifiers(columnNames);
+        toDoTable.setModel(model);
+        toDoTable.setVisible(true);
+
+        panel.add(deleteButton, new com.intellij.uiDesigner.core.GridConstraints());
+        panel.add(newButton, new com.intellij.uiDesigner.core.GridConstraints());
+        panel.add(toDoTable, new com.intellij.uiDesigner.core.GridConstraints());
+    }
 
     public void loadData() {
-        System.out.println(panel.isValid());
-        panel.setVisible(true);
-        panel.add(newButton);
-        newButton.setVisible(true);
         try {
             listManager.initialPopulate();
             for (String s : listManager.getManagedList().getItems()) {
@@ -36,12 +54,12 @@ public class ToDoListUI {
                     model.addRow(o);
                 }
             }
-            toDoTable.setModel(model);
-            model.setColumnIdentifiers(columnNames);
         } catch (NullPointerException e) {
-            System.out.println("No data loaded!");
+                System.out.println("No data loaded!");
+                Object[] o = new Object[1];
+                o[0] = "Add new items!";
+                model.addRow(o);
         }
-//        jPanel.add(toDoTable);
 
     }
 }

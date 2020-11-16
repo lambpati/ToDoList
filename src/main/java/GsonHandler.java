@@ -2,6 +2,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -63,6 +64,19 @@ public class GsonHandler implements Observer {
      */
     protected String getfOutput() {
         return fOutput;
+    }
+
+    protected void checkForFile(){
+        try {
+            if (file.createNewFile()){
+                System.out.println("save.txt file created.");
+            }
+            else {
+                System.out.println("save.txt already exists.");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
