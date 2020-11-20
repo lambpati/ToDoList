@@ -1,6 +1,6 @@
 # ToDoList                      [![Build Status](https://travis-ci.com/lambpati/ToDoList.svg?token=BckUiW7iiwZDLDUVcKBA&branch=master)](https://travis-ci.com/lambpati/ToDoList)
 ## Description
-ToDoList is meant to generate a To-Do List through a simple UI and code written in Java. Code follows the Google Style Guide.
+ToDoList is meant to generate a To-Do List through a simple ToDoUI and code written in Java. Code follows the Google Style Guide.
 ## Installation
 To run ToDoList, download the project through GitHub or as a .zip and extract to the proper location.
 ## Building

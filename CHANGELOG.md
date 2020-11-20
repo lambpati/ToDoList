@@ -24,7 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Created Observer, Publisher, ToDoItem, ToDoList, and ToDoListGUI to exhibit proper Observer Class behavior.
 - Wrote FileReader and GsonHandler to use GSon and newly written classes.
 - Added UML Design Image
-- Added UI Design Image
+- Added ToDoUI Design Image
 - Create .travis.yml
 - Created gradle-wrapper.jar
 - Initial commit
