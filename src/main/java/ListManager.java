@@ -17,6 +17,9 @@ public class ListManager extends Publisher {
         subscribers.add(gsonHandler);
     }
 
+    /**
+     * Populates the initial list of values from GsonHandler to be used in the GUI
+     **/
     protected void initialPopulate(){
         gsonHandler.checkForFile();
         gsonHandler.readFromFile();
