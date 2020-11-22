@@ -11,12 +11,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ToDoListUI {
+    private final ListManager listManager = new ListManager();
+    private final DefaultTableModel model = new DefaultTableModel();
     Object[] o = new Object[listManager.getManagedList().getItems().size()];
     private JButton newButton;
     private JButton deleteButton;
     private JTable toDoTable;
-    private final ListManager listManager = new ListManager();
-    private final DefaultTableModel model = new DefaultTableModel();
     private JPanel panel;
     String[] columnNames = {"Task"};
 
